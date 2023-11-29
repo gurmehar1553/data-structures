@@ -5,7 +5,7 @@ public class DataStructures {
         ll.append(56);
         ll.append(70);
         ll.insertAfter(56,30);
-        ll.pop();
+        ll.popLast();
         ll.print();
     }
 }
@@ -55,6 +55,17 @@ class LinkedList<T>{
         }
         else {
             System.out.println("Empty Linked List");
+        }
+    }
+
+    public void popLast(){
+        if(tail != null){
+            Node<T> ptr = head;
+            while (ptr.next!= null && ptr.next.next != null){
+                ptr = ptr.next;
+            }
+            ptr.next = null;
+            tail = ptr;
         }
     }
     public void print(){
