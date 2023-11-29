@@ -8,6 +8,8 @@ public class DataStructures {
         ll.searchNode(30);
         ll.insertAfter(30,40);
         ll.print();
+        ll.deleteNode(40);
+        System.out.println("Size of linked list : " + ll.size());
     }
 }
 class LinkedList<T>{
@@ -80,6 +82,24 @@ class LinkedList<T>{
         else{
             System.out.println("Data not found");
         }
+    }
+    public void deleteNode(int data){
+        Node<T> ptr=head;
+        while (ptr.next != null && ptr.next.data != data){
+            ptr = ptr.next;
+        }
+        if(ptr.next != null){
+            ptr.next = ptr.next.next;
+        }
+    }
+    public int size(){
+        Node<T> ptr=head;
+        int cnt = 0;
+        while (ptr != null){
+            cnt++;
+            ptr = ptr.next;
+        }
+        return cnt;
     }
     public void print(){
         Node<T> ptr=head;
