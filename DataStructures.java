@@ -3,11 +3,11 @@ public class DataStructures {
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<>();
         ll.append(56);
+        ll.append(30);
         ll.append(70);
-        ll.insertAfter(56,30);
-        ll.popLast();
-        ll.print();
         ll.searchNode(30);
+        ll.insertAfter(30,40);
+        ll.print();
     }
 }
 class LinkedList<T>{
