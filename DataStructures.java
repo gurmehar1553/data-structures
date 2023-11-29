@@ -2,9 +2,9 @@
 public class DataStructures {
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<>();
-        ll.add(70);
-        ll.add(30);
-        ll.add(56);
+        ll.append(56);
+        ll.append(30);
+        ll.append(70);
         ll.print();
     }
 }
@@ -14,8 +14,19 @@ class LinkedList<T>{
         head=null;
         tail=null;
     }
+    public void append(int data){
+        if(head==null && tail == null){
+            head = new Node<>(data);
+            tail = head;
+        }
+        else {
+            Node<T> newNode = new Node<>(data);
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
     public void add(int data){   // adding nodes to the front of linked list
-        if(head == null){
+        if(head == null && tail == null){
             head = new Node<>(data);
             tail = head;
         }
