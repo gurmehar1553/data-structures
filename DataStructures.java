@@ -7,6 +7,7 @@ public class DataStructures {
         ll.insertAfter(56,30);
         ll.popLast();
         ll.print();
+        ll.searchNode(30);
     }
 }
 class LinkedList<T>{
@@ -66,6 +67,18 @@ class LinkedList<T>{
             }
             ptr.next = null;
             tail = ptr;
+        }
+    }
+    public void searchNode(int data){
+        Node<T> ptr=head;
+        while (ptr != null && ptr.data !=data){
+            ptr = ptr.next;
+        }
+        if(ptr != null){
+            System.out.println("Data found");
+        }
+        else{
+            System.out.println("Data not found");
         }
     }
     public void print(){
