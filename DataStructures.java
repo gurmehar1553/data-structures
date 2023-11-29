@@ -5,7 +5,7 @@ public class DataStructures {
         ll.append(56);
         ll.append(70);
         ll.insertAfter(56,30);
-        ll.deleteFirst();
+        ll.pop();
         ll.print();
     }
 }
@@ -49,7 +49,7 @@ class LinkedList<T>{
             newNode.next = tem;
         }
     }
-    public void deleteFirst(){
+    public void pop(){
         if(head != null){
             head = head.next;
         }
