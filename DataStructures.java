@@ -1,14 +1,37 @@
 
 public class DataStructures {
     public static void main(String[] args) {
-        Node<Integer> first = new Node<>(56);
-        Node<Integer> second = new Node<>(30);
-        first.next = second;
-        Node<Integer> third = new Node<>(70);
-        second.next = third;
-        System.out.println(first.data);
-        System.out.println(first.next.data);
-        System.out.println(second.next.data);
+        LinkedList<Integer> ll = new LinkedList<>();
+        ll.add(70);
+        ll.add(30);
+        ll.add(56);
+        ll.print();
+    }
+}
+class LinkedList<T>{
+    Node<T> head, tail;
+    LinkedList(){
+        head=null;
+        tail=null;
+    }
+    public void add(int data){   // adding nodes to the front of linked list
+        if(head == null){
+            head = new Node<>(data);
+            tail = head;
+        }
+        else{
+            Node<T> newNode = new Node<>(data);
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+    public void print(){
+        Node<T> ptr=head;
+        while (ptr != null){
+            System.out.print(ptr.data+" -> ");
+            ptr = ptr.next;
+        }
+        System.out.println("null");
     }
 }
 class Node <T>{
