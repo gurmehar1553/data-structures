@@ -3,8 +3,8 @@ public class DataStructures {
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<>();
         ll.append(56);
-        ll.append(30);
         ll.append(70);
+        ll.insertAfter(56,30);
         ll.print();
     }
 }
@@ -34,6 +34,18 @@ class LinkedList<T>{
             Node<T> newNode = new Node<>(data);
             newNode.next = head;
             head = newNode;
+        }
+    }
+    public void insertAfter(int data,int newData){
+        Node<T> ptr=head;
+        Node<T> newNode = new Node<>(newData);
+        while (ptr!=null && ptr.data != data){
+            ptr = ptr.next;
+        }
+        if(ptr != null){
+            Node<T> tem = ptr.next;
+            ptr.next = newNode;
+            newNode.next = tem;
         }
     }
     public void print(){
