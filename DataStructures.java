@@ -15,6 +15,15 @@ class LinkedList<T>{
         head=null;
         tail=null;
     }
+    public boolean isEmpty(){
+        if(head == null ){
+            return true;
+        }
+        return false;
+    }
+    public int getFirstElement(){
+        return head.data;
+    }
     public void append(int data){
         if(head==null && tail == null){
             head = new Node<>(data);
