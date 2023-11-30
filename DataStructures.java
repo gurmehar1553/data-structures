@@ -1,17 +1,17 @@
 
 public class DataStructures {
     public static void main(String[] args) {
-        SortedLinkedList<Integer> ll = new SortedLinkedList<>();
-        ll.add(56);
-        ll.add(30);
-        ll.add(40);
-        ll.add(70);
+        LinkedList<Integer> ll = new LinkedList<>();
+        ll.addSortedLL(56);
+        ll.addSortedLL(30);
+        ll.addSortedLL(40);
+        ll.addSortedLL(70);
         ll.print();
     }
 }
-class SortedLinkedList<T>{
+class LinkedList<T>{
     Node<T> head, tail;
-    SortedLinkedList(){
+    LinkedList(){
         head=null;
         tail=null;
     }
@@ -26,7 +26,18 @@ class SortedLinkedList<T>{
             tail = newNode;
         }
     }
-    public void add(int data){   // adding nodes in sorted order
+    public void add(int data){
+        if(head == null){
+            head = new Node<>(data);
+            tail = head;
+        }
+        else{
+            Node<T> newNode = new Node<>(data);
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+    public void addSortedLL(int data){   // adding nodes in sorted order
         if(head == null && tail == null){
             head = new Node<>(data);
             tail = head;
