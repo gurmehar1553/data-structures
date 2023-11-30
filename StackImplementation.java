@@ -8,6 +8,14 @@ public class StackImplementation {
             System.out.println(st.peek());
             st.pop();
         }
+
+        Queue<Integer> q =new Queue<>();
+        q.enqueue(56);
+        q.enqueue(30);
+        q.enqueue(70);
+        while (!q.isEmpty()){
+            System.out.println(q.deque());
+        }
     }
 }
 
@@ -24,6 +32,21 @@ class Stack <T>{
     }
     public void pop(){
         ll.pop();
+    }
+    public boolean isEmpty(){
+        return ll.isEmpty();
+    }
+}
+class Queue<T>{
+    LinkedList<T> ll;
+    Queue(){
+        ll = new LinkedList<>();
+    }
+    public void enqueue(int data){
+        ll.append(data);
+    }
+    public int deque(){
+        return ll.pop();
     }
     public boolean isEmpty(){
         return ll.isEmpty();

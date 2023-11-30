@@ -86,12 +86,15 @@ class LinkedList<T>{
             newNode.next = tem;
         }
     }
-    public void pop(){
+    public int pop(){
         if(head != null){
+            int ans=head.data;
             head = head.next;
+            return ans;
         }
         else {
             System.out.println("Empty Linked List");
+            return -1;
         }
     }
 
