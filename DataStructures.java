@@ -1,20 +1,17 @@
 
 public class DataStructures {
     public static void main(String[] args) {
-        LinkedList<Integer> ll = new LinkedList<>();
-        ll.append(56);
-        ll.append(30);
-        ll.append(70);
-        ll.searchNode(30);
-        ll.insertAfter(30,40);
+        SortedLinkedList<Integer> ll = new SortedLinkedList<>();
+        ll.add(56);
+        ll.add(30);
+        ll.add(40);
+        ll.add(70);
         ll.print();
-        ll.deleteNode(40);
-        System.out.println("Size of linked list : " + ll.size());
     }
 }
-class LinkedList<T>{
+class SortedLinkedList<T>{
     Node<T> head, tail;
-    LinkedList(){
+    SortedLinkedList(){
         head=null;
         tail=null;
     }
@@ -29,15 +26,32 @@ class LinkedList<T>{
             tail = newNode;
         }
     }
-    public void add(int data){   // adding nodes to the front of linked list
+    public void add(int data){   // adding nodes in sorted order
         if(head == null && tail == null){
             head = new Node<>(data);
             tail = head;
         }
         else{
             Node<T> newNode = new Node<>(data);
-            newNode.next = head;
-            head = newNode;
+            Node<T> ptr=head;
+            if(head.data > data){
+                newNode.next = head;
+                head = newNode;
+            }
+            else {
+                while (ptr.next!=null && ptr.next.data < data){
+                    ptr = ptr.next;
+                }
+                if(ptr.next == null){
+                    ptr.next = newNode;
+                    tail = newNode;
+                }
+                else {
+                    newNode.next = ptr.next;
+                    ptr.next = newNode;
+                }
+            }
+
         }
     }
     public void insertAfter(int data,int newData){
